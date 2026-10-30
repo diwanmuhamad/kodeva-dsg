@@ -1,0 +1,300 @@
+import type { CmsData } from "@/lib/cms/schema";
+
+const body = {
+  kasir: [
+    {
+      id: "kasir-h",
+      type: "heading" as const,
+      text: "Promo yang bisa dijelaskan tanpa menelepon developer",
+    },
+    {
+      id: "kasir-p",
+      type: "paragraph" as const,
+      text: "Tim marketing sering mengganti harga dan gambar setiap minggu. Di Kodeva, teks promo dan artikel diubah dari studio, lalu situs menampilkan versi terbit tanpa deploy ulang.",
+    },
+    {
+      id: "kasir-l",
+      type: "list" as const,
+      items: [
+        "Harga paket berubah langsung di halaman produk",
+        "Kuota lisensi berlaku untuk semua paket produk yang sama",
+        "Tautan artikel tetap rapi saat dibagikan ke WhatsApp",
+      ],
+    },
+  ],
+  hr: [
+    {
+      id: "hr-p",
+      type: "paragraph" as const,
+      text: "Usaha dengan 10 sampai 80 karyawan biasanya masih menghitung gaji di berkas yang beda-beda. Kodeva HR mengumpulkan komponen gaji dan slip dalam satu alur.",
+    },
+    {
+      id: "hr-p2",
+      type: "paragraph" as const,
+      text: "Artikel ini menaut ke produk di katalog supaya pembaca bisa lanjut melihat harga promo, bukan hanya membaca tips.",
+    },
+  ],
+  stok: [
+    {
+      id: "stok-p",
+      type: "paragraph" as const,
+      text: "Stok yang hanya dicatat di akhir hari sering selisih dengan etalase. Inventori Kodeva mengikuti barang masuk dan barang terjual.",
+    },
+    {
+      id: "stok-l",
+      type: "list" as const,
+      items: ["Tetapkan stok minimum", "Catat barang rusak", "Pisahkan gudang dan etalase"],
+    },
+  ],
+  absen: [
+    {
+      id: "absen-p",
+      type: "paragraph" as const,
+      text: "Tim lapangan dan kasir tidak selalu absen di kantor. Rekap yang terlambat membuat payroll ikut mundur.",
+    },
+    {
+      id: "absen-p2",
+      type: "paragraph" as const,
+      text: "Kodeva Absensi menyimpan masuk, pulang, dan keterlambatan, lalu bisa dilanjutkan ke produk HR.",
+    },
+  ],
+  akun: [
+    {
+      id: "akun-p",
+      type: "paragraph" as const,
+      text: "Pemilik usaha butuh laba rugi sebelum akhir tahun, bukan hanya saat ada pemeriksaan. Jurnal harian membuat angka itu tidak menumpuk.",
+    },
+  ],
+  invoice: [
+    {
+      id: "inv-p",
+      type: "paragraph" as const,
+      text: "Tagihan yang hanya dikirim sebagai foto sering hilang di percakapan. Invoice dengan status lunas lebih mudah ditagih ulang.",
+    },
+  ],
+  crm: [
+    {
+      id: "crm-p",
+      type: "paragraph" as const,
+      text: "Promo berakhir, lalu follow-up pelanggan tertinggal di catatan pribadi. Pipeline sederhana membuat janji tindak lanjut kelihatan oleh tim.",
+    },
+  ],
+  draft: [
+    {
+      id: "draft-p",
+      type: "paragraph" as const,
+      text: "Draf ini belum tampil di daftar artikel. Tim marketing bisa memeriksanya dari studio sebelum status diubah menjadi terbit.",
+    },
+  ],
+};
+
+export const seedCms = {
+  landing: {
+    hero: {
+      eyebrow: "Promo Akhir Tahun",
+      title: "Software usaha yang rapi, dengan harga promo yang jelas.",
+      subtitle:
+        "Kodeva membantu UMKM mengatur kasir, stok, SDM, dan keuangan. Selama kuota lisensi masih ada, harga promo berlaku untuk semua paket produk yang sama.",
+      image: "preset:toko",
+      imageAlt: "Ilustrasi konter usaha yang memakai Kodeva",
+      ctaLabel: "Lihat katalog promo",
+      ctaHref: "/katalog",
+    },
+    featured: {
+      heading: "Pilihan yang paling sering ditanyakan",
+      intro: "Tiga produk ini bisa diganti sendiri oleh tim marketing, termasuk judul dan gambarnya.",
+      items: [
+        {
+          id: "feat-kasir",
+          productSlug: "kodeva-kasir",
+          headline: "Kasir harian tanpa rekap yang tercecer",
+          image: "product",
+          imageAlt: "Tampilan Kodeva Kasir",
+        },
+        {
+          id: "feat-hr",
+          productSlug: "kodeva-hr",
+          headline: "Gaji dan slip dalam satu alur",
+          image: "product",
+          imageAlt: "Tampilan Kodeva HR",
+        },
+        {
+          id: "feat-akun",
+          productSlug: "kodeva-akuntansi",
+          headline: "Laporan keuangan yang bisa dibuka kapan saja",
+          image: "product",
+          imageAlt: "Tampilan Kodeva Akuntansi",
+        },
+      ],
+    },
+    testimonials: {
+      heading: "Dari usaha yang sudah memakai Kodeva",
+      intro: "Kutipan ini contoh. Marketing bisa menggantinya saat ada cerita pelanggan yang baru.",
+      items: [
+        {
+          id: "tm-1",
+          quote: "Tutup kasir yang biasanya menunggu grup chat sekarang selesai sebelum toko dikunci.",
+          name: "Rina Putri",
+          role: "Pemilik",
+          company: "Toko Berkah Jaya",
+        },
+        {
+          id: "tm-2",
+          quote: "Slip gaji tidak lagi saya susun satu per satu. Tim tinggal mengunduhnya.",
+          name: "Andi Wijaya",
+          role: "Admin HR",
+          company: "Bengkel Senja Motor",
+        },
+        {
+          id: "tm-3",
+          quote: "Saya bisa mengganti banner promo sendiri tanpa menunggu giliran developer.",
+          name: "Sinta Lestari",
+          role: "Marketing",
+          company: "Koperasi Melati",
+        },
+      ],
+    },
+    faq: {
+      heading: "Pertanyaan yang sering muncul dari iklan",
+      intro: "Jawaban ini tampil di halaman kampanye dan bisa diubah tanpa menyentuh kode.",
+      items: [
+        {
+          id: "faq-1",
+          question: "Apakah harga di katalog sudah harga promo?",
+          answer:
+            "Ya. Harga yang lebih kecil adalah harga promo. Harga coret adalah harga normal. Keduanya berubah saat paket atau jangka waktu diganti.",
+        },
+        {
+          id: "faq-2",
+          question: "Apa arti kuota lisensi?",
+          answer:
+            "Kuota adalah jumlah lisensi promo yang tersisa untuk satu produk. Basic, Pro, dan Business memakai kuota yang sama. Total di keranjang tidak boleh melebihi sisa kuota.",
+        },
+        {
+          id: "faq-3",
+          question: "Siapa yang bisa mengganti teks dan gambar?",
+          answer:
+            "Tim marketing masuk ke studio, mengubah konten, lalu menyimpan. Halaman publik menampilkan versi terbaru tanpa deploy ulang.",
+        },
+        {
+          id: "faq-4",
+          question: "Apakah halamannya nyaman dibuka dari Instagram?",
+          answer:
+            "Sebagian besar pengunjung datang dari ponsel. Tombol dibuat cukup besar untuk ibu jari, dan tautan artikel punya judul yang jelas saat dibagikan.",
+        },
+      ],
+    },
+    lead: {
+      heading: "Minta ringkasan promo untuk usaha Anda",
+      intro: "Isi nama dan email atau WhatsApp. Tim marketing melihat isian ini di studio, beserta sumber iklan jika ada.",
+      note: "Kami tidak meminta kata sandi atau data pembayaran di formulir ini.",
+      submitLabel: "Kirim data saya",
+    },
+  },
+  posts: [
+    {
+      id: "post-kasir",
+      title: "Promo kasir akhir tahun, tanpa mengubah kode",
+      slug: "promo-kasir-akhir-tahun",
+      excerpt: "Cara tim marketing mengganti penawaran kasir sambil menjaga kuota lisensi tetap jelas.",
+      cover: "product",
+      coverAlt: "Tampilan produk kasir",
+      category: "Promo",
+      status: "published",
+      publishedAt: "2026-10-28",
+      productSlug: "kodeva-kasir",
+      body: body.kasir,
+    },
+    {
+      id: "post-hr",
+      title: "Payroll UMKM yang tidak bergantung pada satu berkas",
+      slug: "payroll-umkm-tanpa-rumit",
+      excerpt: "Slip, tunjangan, dan rekap bulanan lebih mudah ditinjau kalau alurnya satu.",
+      cover: "preset:tim",
+      coverAlt: "Ilustrasi tim usaha",
+      category: "SDM",
+      status: "published",
+      publishedAt: "2026-10-26",
+      productSlug: "kodeva-hr",
+      body: body.hr,
+    },
+    {
+      id: "post-stok",
+      title: "Stok gudang yang tetap jelas sampai etalase",
+      slug: "stok-gudang-tetap-jelas",
+      excerpt: "Selisih stok biasanya muncul karena catatan penjualan dan gudang tidak bertemu.",
+      cover: "preset:laporan",
+      coverAlt: "Ilustrasi laporan stok",
+      category: "Operasional",
+      status: "published",
+      publishedAt: "2026-10-24",
+      productSlug: "kodeva-inventori",
+      body: body.stok,
+    },
+    {
+      id: "post-absen",
+      title: "Absensi tim lapangan yang langsung jadi rekap",
+      slug: "absensi-tim-lapangan",
+      excerpt: "Masuk, pulang, dan keterlambatan tidak perlu diketik ulang untuk payroll.",
+      cover: "preset:tim",
+      coverAlt: "Ilustrasi absensi tim",
+      category: "SDM",
+      status: "published",
+      publishedAt: "2026-10-22",
+      productSlug: "kodeva-absensi",
+      body: body.absen,
+    },
+    {
+      id: "post-akun",
+      title: "Laporan keuangan yang bisa dicek di tengah bulan",
+      slug: "laporan-keuangan-siap-cek",
+      excerpt: "Jurnal yang rapi membuat laba rugi tidak menunggu akhir tahun.",
+      cover: "preset:laporan",
+      coverAlt: "Ilustrasi laporan keuangan",
+      category: "Keuangan",
+      status: "published",
+      publishedAt: "2026-10-20",
+      productSlug: "kodeva-akuntansi",
+      body: body.akun,
+    },
+    {
+      id: "post-invoice",
+      title: "Invoice yang statusnya kelihatan, bukan hanya terkirim",
+      slug: "invoice-lunas-lebih-cepat",
+      excerpt: "Tagihan dengan status lunas mengurangi kejar-kejaran di pesan singkat.",
+      cover: "preset:toko",
+      coverAlt: "Ilustrasi tagihan usaha",
+      category: "Keuangan",
+      status: "published",
+      publishedAt: "2026-10-18",
+      productSlug: "kodeva-invoice",
+      body: body.invoice,
+    },
+    {
+      id: "post-crm",
+      title: "Follow-up pelanggan setelah promo ditutup",
+      slug: "follow-up-pelanggan-rutin",
+      excerpt: "Janji menindaklanjuti lebih aman kalau tidak hanya tersimpan di catatan pribadi.",
+      cover: "product",
+      coverAlt: "Tampilan CRM",
+      category: "Operasional",
+      status: "published",
+      publishedAt: "2026-10-16",
+      productSlug: "kodeva-crm",
+      body: body.crm,
+    },
+    {
+      id: "post-draft",
+      title: "Catatan kampanye untuk tim yang akan datang",
+      slug: "catatan-kampanye-mendatang",
+      excerpt: "Draf internal. Artikel ini tidak muncul di blog sampai statusnya diterbitkan.",
+      cover: "preset:laporan",
+      coverAlt: "Catatan draf kampanye",
+      category: "Promo",
+      status: "draft",
+      publishedAt: "2026-10-30",
+      productSlug: "kodeva-crm",
+      body: body.draft,
+    },
+  ],
+} satisfies CmsData;
