@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Standalone Sanity Studio (own package + tsconfig)
+    "kodeva-blog/**",
   ]),
 ]);
 
